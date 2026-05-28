@@ -20,7 +20,7 @@ creds = Credentials.from_service_account_info(
 
 client = gspread.authorize(creds)
 
-sheet = client.open("Gastos_JB").sheet1
+sheet = client.open_by_key("18D_ctBRRxOSGcHIqdQJ0UmcC1w0valrq9teE6u0q-tQ").sheet1
 
 # ----------------------------------------
 # LISTAS
