@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import gspread
@@ -212,4 +211,3 @@ if datos:
         "Total gastado",
         f"${total:,.2f}"
     )
-```
