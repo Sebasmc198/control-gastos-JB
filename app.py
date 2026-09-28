@@ -227,17 +227,9 @@ if st.button("Guardar gasto"):
 
 st.subheader("Último gasto registrado")
 
-datos = sheet.get_all_values()
+ultimo_gasto = st.session_state.get("ultimo_gasto")
 
-# Quitar filas completamente vacías
-datos_con_info = [
-    fila for fila in datos[1:]
-    if any(str(celda).strip() for celda in fila)
-]
-
-if datos_con_info:
-
-    ultimo_gasto = datos_con_info[-1]
+if ultimo_gasto:
 
     st.write(f"**Fecha:** {ultimo_gasto[0]}")
     st.write(f"**Tipo:** {ultimo_gasto[1]}")
@@ -250,4 +242,4 @@ if datos_con_info:
 
 else:
 
-    st.info("Aún no hay gastos registrados.")
+    st.info("Registra un gasto para verlo aquí.")
