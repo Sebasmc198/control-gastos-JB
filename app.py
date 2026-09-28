@@ -45,6 +45,7 @@ INSUMOS = [
     "Chiles",
     "Chipotle",
     "Crema de cacahuate",
+    "Crema pistache",
     "Croissants",
     "Curcuma",
     "Espinaca",
@@ -60,8 +61,10 @@ INSUMOS = [
     "Jamon",
     "Jengibre",
     "Jitomate",
-    "Leche Carnetion",
+    "Leche Carnation",
     "Leche",
+    "Leche de almendras",
+    "Leche proteina"
     "Lechuga",
     "Limon",
     "Linaza",
@@ -90,13 +93,22 @@ INSUMOS = [
     "Queso suizo",
     "Salsita",
     "Sirope (maple)",
+    "Stevia",
     "Toronja",
+    "Vainilla",
     "Wafles",
     "Yogurth",
     "Zanahoria"
 ]
 
 OPERATIVOS = [
+    "Aluminio",
+    "Bolsas Basura",
+    "Bolsas chiles"
+    "Bolsas Kraft",
+    "Bolsas grandes",
+    "Charolas RB160",
+    "Charolas portavasos",
     "Gasolina",
     "Luz",
     "Internet",
@@ -104,7 +116,10 @@ OPERATIVOS = [
     "Renta",
     "Nómina",
     "Detergente",
+    "Papel cuadriculado",
+    "Popotes",
     "Publicidad",
+    "Servilletas",
     "Spotify",
     "Vehiculo",
     "Recoleccion Basura",
@@ -211,3 +226,4 @@ if datos:
         "Total gastado",
         f"${total:,.2f}"
     )
+    
