@@ -64,7 +64,7 @@ INSUMOS = [
     "Leche Carnation",
     "Leche",
     "Leche de almendras",
-    "Leche proteina"
+    "Leche proteina",
     "Lechuga",
     "Limon",
     "Linaza",
@@ -195,16 +195,32 @@ comentarios = st.text_area(
 
 if st.button("Guardar gasto"):
 
-    sheet.append_row([
-        str(fecha),
-        tipo_gasto,
-        concepto,
-        monto,
-        metodo_pago,
-        comentarios
-    ])
+    try:
 
-    st.success("Gasto guardado correctamente")
+        fila = [
+            str(fecha),
+            tipo_gasto,
+            concepto,
+            monto,
+            metodo_pago,
+            comentarios
+        ]
+
+        sheet.append_row(
+            fila,
+            value_input_option="USER_ENTERED",
+            insert_data_option="INSERT_ROWS"
+        )
+
+        st.success("Gasto guardado correctamente")
+
+        st.write("Última fila registrada en Google Sheets:")
+        st.write(sheet.get_all_values()[-1])
+
+    except Exception as e:
+
+        st.error("Ocurrió un error al guardar:")
+        st.exception(e)
 
 # ----------------------------------------
 # MOSTRAR HISTORIAL
