@@ -229,9 +229,15 @@ st.subheader("Último gasto registrado")
 
 datos = sheet.get_all_values()
 
-if len(datos) > 1:
+# Quitar filas completamente vacías
+datos_con_info = [
+    fila for fila in datos[1:]
+    if any(str(celda).strip() for celda in fila)
+]
 
-    ultimo_gasto = datos[-1]
+if datos_con_info:
+
+    ultimo_gasto = datos_con_info[-1]
 
     st.write(f"**Fecha:** {ultimo_gasto[0]}")
     st.write(f"**Tipo:** {ultimo_gasto[1]}")
