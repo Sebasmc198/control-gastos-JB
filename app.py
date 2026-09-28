@@ -214,8 +214,7 @@ if st.button("Guardar gasto"):
 
         st.success("Gasto guardado correctamente")
 
-        st.write("Última fila registrada en Google Sheets:")
-        st.write(sheet.get_all_values()[-1])
+        st.rerun()
 
     except Exception as e:
 
