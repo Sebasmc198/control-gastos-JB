@@ -234,11 +234,12 @@ if datos:
     df = pd.DataFrame(datos)
 
     st.dataframe(df.tail(20))
-
-    total = df["Monto"].sum()
-
-    st.metric(
-        "Total gastado",
-        f"${total:,.2f}"
-    )
     
+    df["Monto"] = pd.to_numeric(df["Monto"], errors="coerce")
+
+total = df["Monto"].sum()
+
+st.metric(
+    "Total gastado",
+    f"${total:,.2f}"
+)   
