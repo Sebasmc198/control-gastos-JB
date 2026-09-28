@@ -212,9 +212,10 @@ if st.button("Guardar gasto"):
             insert_data_option="INSERT_ROWS"
         )
 
-        st.success("Gasto guardado correctamente")
+        # Guardar el último gasto en la sesión
+        st.session_state["ultimo_gasto"] = fila
 
-        st.rerun()
+        st.success("Gasto guardado correctamente")
 
     except Exception as e:
 
