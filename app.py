@@ -222,24 +222,42 @@ if st.button("Guardar gasto"):
         st.exception(e)
 
 # ----------------------------------------
-# MOSTRAR HISTORIAL
+# MOSTRAR ÚLTIMO GASTO
 # ----------------------------------------
 
-st.subheader("Últimos gastos")
+st.subheader("Último gasto registrado")
 
 datos = sheet.get_all_records()
 
 if datos:
 
-    df = pd.DataFrame(datos)
+    ultimo_gasto = datos[-1]
 
-    st.dataframe(df.tail(20))
-    
-    df["Monto"] = pd.to_numeric(df["Monto"], errors="coerce")
+    st.write(
+        f"**Fecha:** {ultimo_gasto['Fecha']}"
+    )
 
-total = df["Monto"].sum()
+    st.write(
+        f"**Tipo:** {ultimo_gasto['Tipo de gasto']}"
+    )
 
-st.metric(
-    "Total gastado",
-    f"${total:,.2f}"
-)   
+    st.write(
+        f"**Concepto:** {ultimo_gasto['Concepto']}"
+    )
+
+    st.write(
+        f"**Monto:** ${float(ultimo_gasto['Monto']):,.2f}"
+    )
+
+    st.write(
+        f"**Método de pago:** {ultimo_gasto['Método de pago']}"
+    )
+
+    if ultimo_gasto["Comentarios"]:
+        st.write(
+            f"**Comentarios:** {ultimo_gasto['Comentarios']}"
+        )
+
+else:
+
+    st.info("Aún no hay gastos registrados.")
