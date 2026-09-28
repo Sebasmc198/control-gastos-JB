@@ -227,36 +227,20 @@ if st.button("Guardar gasto"):
 
 st.subheader("Último gasto registrado")
 
-datos = sheet.get_all_records()
+datos = sheet.get_all_values()
 
-if datos:
+if len(datos) > 1:
 
     ultimo_gasto = datos[-1]
 
-    st.write(
-        f"**Fecha:** {ultimo_gasto['Fecha']}"
-    )
+    st.write(f"**Fecha:** {ultimo_gasto[0]}")
+    st.write(f"**Tipo:** {ultimo_gasto[1]}")
+    st.write(f"**Concepto:** {ultimo_gasto[2]}")
+    st.write(f"**Monto:** ${float(ultimo_gasto[3]):,.2f}")
+    st.write(f"**Método de pago:** {ultimo_gasto[4]}")
 
-    st.write(
-        f"**Tipo:** {ultimo_gasto['Tipo de gasto']}"
-    )
-
-    st.write(
-        f"**Concepto:** {ultimo_gasto['Concepto']}"
-    )
-
-    st.write(
-        f"**Monto:** ${float(ultimo_gasto['Monto']):,.2f}"
-    )
-
-    st.write(
-        f"**Método de pago:** {ultimo_gasto['Método de pago']}"
-    )
-
-    if ultimo_gasto["Comentarios"]:
-        st.write(
-            f"**Comentarios:** {ultimo_gasto['Comentarios']}"
-        )
+    if len(ultimo_gasto) > 5 and ultimo_gasto[5]:
+        st.write(f"**Comentarios:** {ultimo_gasto[5]}")
 
 else:
 
