@@ -104,7 +104,7 @@ INSUMOS = [
 OPERATIVOS = [
     "Aluminio",
     "Bolsas Basura",
-    "Bolsas chiles"
+    "Bolsas chiles",
     "Bolsas Kraft",
     "Bolsas grandes",
     "Charolas RB160",
